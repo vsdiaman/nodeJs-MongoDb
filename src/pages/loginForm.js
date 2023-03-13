@@ -1,11 +1,15 @@
 import React, { Component } from "react";
+import "./style.css";
 
 class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
+      name: "",
       password: "",
+      confirmPassword: "",
+      email: "",
       message: "",
     };
   }
@@ -17,38 +21,59 @@ class LoginForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault(); //é um método de complemento que pode ser usado para previnir a ação padrão do evento que estiver acontecendo.
-    const { username, password } = this.state;
+    // const { username, password } = this.state;
     // enviar os dados para um servidor para autenticação
     // atualizar o estado "message" com base na resposta do servidor
+    // Implemente aqui a lógica de envio dos dados do formulário para o servidor
   };
 
   render() {
-    const { username, password, message } = this.state;
+    const { username, name, password, confirmPassword, email, message } =
+      this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <labe htmlFor="username">Nome de Usuário:</labe>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={username}
-            onChange={this.handleInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Senha:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            onChange={this.handleInputChange}
-          />
-        </div>
-        <button type="submit">Entrar</button>
-        {message && <div>{message}</div>}
-      </form>
+      <div className="form-container">
+        <form onSubmit={this.handleSubmit}>
+          <h2>Cadastro</h2>
+          <div className="form-group">
+            <label htmlFor="name">Nome:</label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(event) => this.handleInputChange(event.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">E-mail:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(event) => this.handleInputChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Senha:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(event) => this.handleInputChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="confirm-password">Confirmar senha:</label>
+            <input
+              type="password"
+              id="confirm-password"
+              value={confirmPassword}
+              onChange={(event) => this.handleInputChange}
+            />
+          </div>
+          <button type="submit">Cadastrar</button>
+          {message && <div>{message}</div>}
+        </form>
+      </div>
     );
   }
 }
