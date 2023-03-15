@@ -1,10 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 require("dotenv").config();
 const app = express();
 
+require("./db/connection");
 // const Person = require("./models/Person");
+
+const PORT_BACK = process.env.DB_PORT_BACK;
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -13,33 +16,22 @@ app.use(express.json());
 //Solve CORS
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
-const personRoutes = require("./routes/personRoutes");
-app.use("/person", personRoutes);
-const USER_DB = process.env.DB_USER;
-const PASS_DB = process.env.DB_PASSWORD;
-const PORT_BACK = process.env.DB_PORT_BACK;
 // Rota inicial / endpoint
+
+app.listen(PORT_BACK, () => {
+  console.log(`Servidor rodando na porta: ${PORT_BACK}`);
+});
 
 // Routes
 
+const UserRoutes = require("./routes/UserRoutes");
+
+app.use("/users", UserRoutes);
 
 app.get("/", (req, res) => {
   // Mostrar a req
   res.json({ message: "Oi express!" });
 });
-
-mongoose
-  .connect(
-    `mongodb+srv://${USER_DB}:${encodeURIComponent(
-      PASS_DB
-    )}@apicluster0.0ffk5gy.mongodb.net/bancodaapiretryWrites=true&w=majority`
-  )
-  .then(() => {
-    app.listen(PORT_BACK, function () {
-      console.log("Server MongoDb is running on port " + PORT_BACK);
-    });
-  })
-  .catch((err) => console.log("Error na aplicação", err));
 
 //pass Dn8FYGMy6m4zkbGB
 //username vitordiamantino
