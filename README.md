@@ -2,10 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<div align="center" >
-  <img src="https://github.com/vsdiaman/landingpage/blob/main/landingpage.gif" alt="demo-web" height="425">
-</div>
-
 ## Available Scripts
 
 In the project directory, you can run:
