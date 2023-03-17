@@ -5,6 +5,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+<div align="center" >
+  <img src="[https://github.com/vsdiaman/landingpage/blob/main/landingpage.gif](https://github.com/vsdiaman/nodeJs-MongoDb/blob/main/src/Screenshot%20from%202023-03-17%2011-58-54.png)" alt="demo-web" height="425">
+</div>
 
 ### `npm start`
 
