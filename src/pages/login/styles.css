@@ -101,23 +101,23 @@ body {
   border-bottom-color: #4070f4;
 }
 
-.input-field i {
+.input-field .i {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   color: #999;
-  font-size: 23px;
+  font-size: 20px;
   transition: all 0.2s ease;
 }
 
-.input-field input:is(:focus, :valid) ~ i {
+.input-field input:is(:focus, :valid) ~ .i {
   color: #4070f4;
 }
 
-.input-field i.icon {
+.input-field .i .icon {
   left: 0;
 }
-.input-field i.showHidePw {
+.input-field .i .showHidePw {
   right: 0;
   cursor: pointer;
   padding: 10px;
@@ -176,4 +176,16 @@ body {
 .form .login-signup {
   margin-top: 30px;
   text-align: center;
+}
+
+/* estilos para telas menores que 600px de largura */
+@media (max-width: 900px) {
+  body {
+    margin: 0;
+    padding: 0;
+    display: block;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
 }

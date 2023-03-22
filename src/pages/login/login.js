@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
+
 import "./styles.css";
 
 class Login extends Component {
@@ -42,7 +47,8 @@ class Login extends Component {
                   placeholder="Enter your email"
                   required
                 />
-                <i class="uil uil-envelope icon"></i>
+                <FontAwesomeIcon className="i" icon={faEnvelope} size="sm" />
+                {/* <i class="uil uil-envelope icon"></i> */}
               </div>
               <div class="input-field">
                 <input
@@ -52,6 +58,7 @@ class Login extends Component {
                   placeholder="Enter your password"
                   required
                 />
+                <FontAwesomeIcon className="i" icon={faLock} />
                 <i class="uil uil-lock icon"></i>
                 <i class="uil uil-eye-slash showHidePw"></i>
               </div>
@@ -77,7 +84,7 @@ class Login extends Component {
             <div class="login-signup">
               <span class="text">
                 Not a member?
-                <a href="#" class="text signup-link">
+                <a href="/register" class="text signup-link">
                   Signup Now
                 </a>
               </span>
